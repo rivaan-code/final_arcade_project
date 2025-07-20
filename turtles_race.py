@@ -69,4 +69,32 @@ for i in range(145):
     t3.forward(random.randint(1,5))
     t4.forward(random.randint(1,5))
 
+#deciding the winner
+finish_line = 210
+
+
+# Decide ranking
+finals_list = [t1.xcor(),t2.xcor(),t3.xcor(),t4.xcor()]
+finals_dict = {t1.xcor():'red', t2.xcor():'blue', \
+               t3.xcor():'purple',t4.xcor():'magenta'}
+
+
+finals_list = sorted(finals_list,reverse=True) 
+
+def race_winners_announcement(x,y,position,place):
+    turtle.setposition(x,y)
+    rank = finals_list[place]
+    turtle.write(f'{position} place: {finals_dict[rank]} turtle',align='left')
+
+# Ranking board
+turtle.up() 
+turtle.color('Black')
+turtle.setposition(-60,-200)
+turtle.write('Winners :',align='left', font=(None,12))
+
+race_winners_announcement(-60,-220 , "1st", 0)
+race_winners_announcement(-60,-240 , "2nd",1)
+race_winners_announcement(-60,-260 , "3rd",2)
+race_winners_announcement(-60,-280 , "4th",3)
+
 turtle.done()
